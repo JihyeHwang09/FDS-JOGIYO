@@ -48,9 +48,11 @@ export default class Modal extends Component {
     }));
   }
   handleQuantityMinus() {
-    this.setState(prevState => ({
-      quantity: prevState.quantity - 1,
-    }));
+    if (this.state.quantity > 1) {
+      this.setState(prevState => ({
+        quantity: prevState.quantity - 1,
+      }));
+    }
   }
 
   render() {
