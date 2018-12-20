@@ -17,6 +17,7 @@ class UserReviewView extends Component {
       tasteAvg,
       deliveryAvg,
       quantityAvg,
+      user,
     } = this.props;
     console.log(review);
     console.log(review.menuSummary);
@@ -58,7 +59,9 @@ class UserReviewView extends Component {
         <div>
           {review.map(r => (
             <div className="UserReview__content" key={r.id}>
-              <span className="UserReview__content__name">작성자 </span>
+              <span className="UserReview__content__name">
+                {r.user.username}
+              </span>
               <span className="UserReview__content__time">
                 {timeDiff(r.time)}
               </span>
