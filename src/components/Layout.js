@@ -13,7 +13,7 @@ import Login from '../containers/Login';
 export default class Layout extends Component {
   render() {
     const { isLogin, logout, history } = this.props;
-    console.log(this.props.itemLength);
+    console.log(this.props.cartLength);
     console.log(this.props);
     return (
       <React.Fragment>
@@ -48,7 +48,9 @@ export default class Layout extends Component {
                   <span className="Layout__header__cart">
                     <FontAwesomeIcon icon={faShoppingCart} color={'white'} />
                     {/* 노란색 동그라미 숫자 */}
-                    {/* <span className="Layout__header__cart__count">1</span> */}
+                    {/* <span className="Layout__header__cart__count">
+                      {this.state.cartLength}
+                    </span> */}
                   </span>
                 </Link>
               </>
