@@ -14,7 +14,6 @@ class LoginView extends Component {
       username,
       password,
     } = this.props;
-    const { loading } = this.state;
     if (success) {
       return <Redirect to="/" />;
     } else {
