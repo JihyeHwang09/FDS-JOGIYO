@@ -49,7 +49,12 @@ export default class CartView extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
   }
-
+  handleToMenu() {
+    sessionStorage.setItem('cart', JSON.stringify(this.state.foodInCart));
+  }
+  handleToPay() {
+    sessionStorage.setItem('cart', JSON.stringify(this.state.foodInCart));
+  }
   handleQuantityPlus(id, price) {
     const { foodInCart } = this.state;
     const newFoodInCart = foodInCart.map(f => {
@@ -196,7 +201,7 @@ export default class CartView extends Component {
             <Link to={`/store/${foodInCart[0].storeId}`}>
               <button
                 onClick={() => {
-                  this.props.handleAddMenu();
+                  this.handleToMenu();
                 }}
               >
                 메뉴 추가하기
@@ -215,7 +220,7 @@ export default class CartView extends Component {
           foodInCart.reduce((acc, item) => acc + item.totalPrice, 0) >
             foodInCart[0].minAmount ? (
             <Link to="/pay">
-              <button onClick={() => this.props.handleToPay()}>주문하기</button>
+              <button onClick={() => this.handleToPay()}>주문하기</button>
             </Link>
           ) : (
             <Link to="#none" id="Cart__btn-disabled">
