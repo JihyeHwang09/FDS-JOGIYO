@@ -11,6 +11,7 @@ class Login extends Component {
       password: '',
       success: false,
       login: true,
+      // loading: true,
     };
   }
   handleChange = (target, value) => {
@@ -25,7 +26,7 @@ class Login extends Component {
       await login(username, password);
       this.setState({
         success: true,
-        loading: false,
+        // loading: false,
       });
     } catch (e) {
       console.log('로그인 에러 남');
