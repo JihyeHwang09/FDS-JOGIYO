@@ -11,8 +11,8 @@ export default class Cart extends Component {
 
     this.handleAddMenu.bind(this);
     this.handleToPay.bind(this);
-    this.handleDelete.bind(this);
-    this.handleDeleteAll.bind(this);
+    // this.handleDelete.bind(this);
+    // this.handleDeleteAll.bind(this);
     this.checkFoodIndex = this.checkFoodIndex.bind(this);
   }
   // componentDidMount() {
@@ -75,8 +75,8 @@ export default class Cart extends Component {
     return (
       <CartView
         orderList={this.state.orderList}
-        handleAddMenu={this.handleAddMenu.bind(this)}
-        handleToPay={this.handleToPay.bind(this)}
+        handleAddMenu={this.handleAddMenu}
+        handleToPay={this.handleToPay}
         handleDelete={this.handleDelete.bind(this)}
         handleDeleteAll={this.handleDeleteAll.bind(this)}
         key={this.state.orderList.length}
