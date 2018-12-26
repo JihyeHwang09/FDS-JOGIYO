@@ -9,12 +9,12 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { publicDecrypt } from 'crypto';
 import Login from '../containers/Login';
+import { withUser } from '../contexts/UserContext';
 
-export default class Layout extends Component {
+class Layout extends Component {
   render() {
     const { isLogin, logout, history } = this.props;
-    console.log(this.props.cartLength);
-    console.log(this.props);
+
     return (
       <React.Fragment>
         <div className="Layout__header">
@@ -110,3 +110,5 @@ export default class Layout extends Component {
     );
   }
 }
+
+export default withUser(Layout);
