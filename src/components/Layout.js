@@ -10,6 +10,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { publicDecrypt } from 'crypto';
 import Login from '../containers/Login';
 import { withUser } from '../contexts/UserContext';
+import { withRouter } from 'react-router-dom';
 
 class Layout extends Component {
   render() {
@@ -111,4 +112,4 @@ class Layout extends Component {
   }
 }
 
-export default withUser(Layout);
+export default withRouter(withUser(Layout));
