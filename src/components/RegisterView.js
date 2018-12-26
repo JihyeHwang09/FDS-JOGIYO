@@ -26,20 +26,6 @@ export default class RegisterFormView extends Component {
     this.setState({ [name]: e.target.value });
   }
 
-  async handleSubmit(e) {
-    e.preventDefault();
-    const username = e.target.elements.username.value;
-    const password = e.target.elements.password.value;
-    const nickName = e.target.elements.nickName.value;
-    const phoneNumber = e.target.elements.phoneNumber.value;
-
-    const { ...value } = { username, password, nickName, phoneNumber };
-
-    await this.props.onRegister({ ...value });
-    // 회원가입이 성공적으로 되었을 때
-    this.setState({ success: true });
-  }
-
   render() {
     const {
       username,
@@ -146,7 +132,7 @@ export default class RegisterFormView extends Component {
                     <input
                       id="nickName"
                       type="text"
-                      value={nickName}
+                      defaultValue={nickName}
                       placeholder="(선택)닉네임 입력"
                       name="nickName"
                     />
