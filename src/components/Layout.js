@@ -9,8 +9,10 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { publicDecrypt } from 'crypto';
 import Login from '../containers/Login';
+import { withUser } from '../contexts/UserContext';
+import { withRouter } from 'react-router-dom';
 
-export default class Layout extends Component {
+class Layout extends Component {
   render() {
     const { isLogin, logout, history } = this.props;
     console.log(this.props.cartLength);
@@ -110,3 +112,5 @@ export default class Layout extends Component {
     );
   }
 }
+
+export default withRouter(withUser(Layout));

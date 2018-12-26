@@ -71,7 +71,9 @@ export default class UserProvider extends Component {
       password,
     });
     localStorage.setItem('token', res.data.token);
-    //TODO: 로그인 되면 할 일 적기
+    this.setState({
+      isLogin: true,
+    });
   }
 
   logout() {
