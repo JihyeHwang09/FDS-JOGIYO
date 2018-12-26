@@ -66,7 +66,7 @@ export default class UserProvider extends Component {
   }
 
   async login(username, password) {
-    const res = await api.post(`/members/api/${username}/user`, {
+    const res = await api.post(`/api-token-auth/ `, {
       username,
       password,
     });
