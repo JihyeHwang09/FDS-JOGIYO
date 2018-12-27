@@ -23,6 +23,22 @@ export default class Modal extends Component {
       quantity: 1,
       totalPrice: 0,
     };
+
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  }
+  handleKeyPress(e) {
+    if (e.keyCode === 27) {
+      console.log('ACTIVe');
+      this.handleModalClose();
+    }
   }
 
   handleQuantityChange(e) {

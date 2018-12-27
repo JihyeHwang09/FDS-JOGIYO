@@ -45,7 +45,10 @@ export default class RegisterFormView extends Component {
     } else {
       return (
         <div className="Register">
-          <form className="Register__form" onSubmit={e => this.handleSubmit(e)}>
+          <form
+            className="Register__form"
+            onSubmit={e => this.props.handleSubmit(e)}
+          >
             <div className="Register__form__form">
               <div className="Register__form__form__sns-login">
                 <span className="Register__form__form__sns-login__title">

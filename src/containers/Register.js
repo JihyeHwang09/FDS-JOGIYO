@@ -25,11 +25,12 @@ class Register extends Component {
 
     const { ...value } = { username, password, nickName, phoneNumber };
 
-    await this.props.onRegister({ ...value });
+    await this.props.register({ ...value });
     // 회원가입이 성공적으로 되었을 때
     this.setState({
       success: true,
     });
+    console.log(username);
   }
 
   render() {

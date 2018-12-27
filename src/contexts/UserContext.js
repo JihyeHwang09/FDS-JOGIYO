@@ -38,6 +38,10 @@ export default class UserProvider extends Component {
             username,
           },
         });
+
+      this.setState({
+        isLogin: true,
+      });
     }
   }
   // 회원 가입
@@ -48,20 +52,25 @@ export default class UserProvider extends Component {
     // 사용자가 입력한 username(이메일 주소)와
     // DB에서 가져온 모든 user의 username 중 일치하는 데이터가 있을 경우,
     // 응답으로 온 users의 길이가 0보다 크므로
-    const { data: users } = await api.get(`/members/api/${username}/user`, {
+    const { data: users } = await api.get(`/members/api/user`, {
       params: {
         username,
       },
     });
-    if (users.length === 0) {
-      // 새로운 유저 인스턴스 생성
-      await api.post('members/api/user/', {
-        username,
-        password,
-        phone_number: phoneNumber,
-        nick_name: nickName,
-      });
+    console.log(users);
+    if (users.length > 0) {
+      alert('이미 사용중인 이름입니다.');
     }
+
+    // 새로운 유저 인스턴스 생성
+    await api.post('members/api/user/', {
+      username,
+      password,
+      phone_number: phoneNumber,
+      nick_name: nickName,
+    });
+    alert('성공적으로 생성');
+
     //TODO: 중복 아이디일 경우, 모달 띄우기
   }
 

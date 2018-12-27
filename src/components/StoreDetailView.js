@@ -45,6 +45,8 @@ class StoreDetailView extends Component {
     // page === 'user-review' -> 사용자 리뷰 페이지
     // page === 'store-info' -> 음식점 정보 페이지
     this.state = { selected: 'menu', infoShow: false };
+    this.handleInfoClick = this.handleInfoClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -75,9 +77,21 @@ class StoreDetailView extends Component {
   }
   // 물음표 클릭 시 배달시간에 대한 안내 문구 출력
   handleInfoClick() {
+    if (!this.state.infoShow) {
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
     this.setState(prevState => ({
       infoShow: !prevState.infoShow,
     }));
+  }
+
+  handleOutsideClick(e) {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    this.handleInfoClick();
   }
 
   render() {
@@ -142,7 +156,12 @@ class StoreDetailView extends Component {
               </p>
               <p>
                 배달시간 <span>{estimatedDeliveryTime}</span>
-                <p className="StoreDetail__info__text__btn">
+                <p
+                  className="StoreDetail__info__text__btn"
+                  ref={node => {
+                    this.node = node;
+                  }}
+                >
                   <button onClick={() => this.handleInfoClick()}>
                     <FontAwesomeIcon icon={faQuestionCircle} />
                   </button>
