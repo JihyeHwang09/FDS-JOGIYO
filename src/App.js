@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import '@babel/polyfill';
 
 import FoodCategoryPage from './pages/FoodCategoryPage';
 import { BrowserRouter, Route } from 'react-router-dom';
