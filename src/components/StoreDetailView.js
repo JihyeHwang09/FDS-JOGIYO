@@ -156,13 +156,13 @@ class StoreDetailView extends Component {
               </p>
               <p>
                 배달시간 <span>{estimatedDeliveryTime}</span>
-                <p
-                  className="StoreDetail__info__text__btn"
-                  ref={node => {
-                    this.node = node;
-                  }}
-                >
-                  <button onClick={() => this.handleInfoClick()}>
+                <p className="StoreDetail__info__text__btn">
+                  <button
+                    ref={node => {
+                      this.node = node;
+                    }}
+                    onClick={() => this.handleInfoClick()}
+                  >
                     <FontAwesomeIcon icon={faQuestionCircle} />
                   </button>
                   {infoShow ? (

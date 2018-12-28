@@ -24,6 +24,7 @@ class Login extends Component {
     const { login } = this.props;
     try {
       await login(username, password);
+
       this.setState({
         success: true,
         // loading: false,
