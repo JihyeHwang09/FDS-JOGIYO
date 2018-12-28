@@ -17,7 +17,7 @@ export default class UserReview extends Component {
   async componentDidMount() {
     const { storeId } = this.props;
     const { data: review } = await api.get(
-      '/restaurants/api/' + storeId + '/review/'
+      `/restaurants/api/${storeId}/review/`
     );
     this.setState({
       review,

@@ -4,7 +4,28 @@ import withLoading from '../hoc/WithLoading';
 
 class UserReviewView extends Component {
   static defaultProps = {
-    review: [],
+    review: [
+      // {
+      //   "id": 6153,
+      //   "comment": "죄송합니다",
+      //   "rating": 2,
+      //   "ratingDelivery": "1.0",
+      //   "ratingQuantity": "2.0",
+      //   "ratingTaste": "3.0",
+      //   "reviewImages": null,
+      //   "time": "2018-12-28T17:19:16.248041+09:00",
+      //   "user": {
+      //     "id": 12,
+      //     "username": "hello",
+      //     "password": "pbkdf2_sha256$120000$r9SDy5XIoHkK$uQpsysG8UqZB6c1pMAK9VTefM2J1djffvyUuk6ifLKk=",
+      //     "email": "",
+      //     "phoneNumber": "+82100001110",
+      //     "nickName": ""
+      //   },
+      //   "menuSummary": [],
+      //   "restaurant": 12
+      // },
+    ],
   };
 
   render() {
@@ -21,6 +42,7 @@ class UserReviewView extends Component {
     } = this.props;
     console.log(review);
     console.log(review.menuSummary);
+
     return (
       <div className="UserReview">
         <div className="UserReview__avg">
@@ -62,6 +84,7 @@ class UserReviewView extends Component {
               <span className="UserReview__content__name">
                 {r.user.username}
               </span>
+
               <span className="UserReview__content__time">
                 {timeDiff(r.time)}
               </span>
